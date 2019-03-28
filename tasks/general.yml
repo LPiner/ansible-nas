@@ -11,7 +11,7 @@
   until: add_repo_result.rc == 0
   retries: 3
   delay: 1
-  when: ubuntu | Default(false)
+  when: (ubuntu | default(false))
 
 - name: Update apt-cache
   apt:
