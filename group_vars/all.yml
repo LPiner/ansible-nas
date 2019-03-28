@@ -59,7 +59,7 @@ timemachine_enabled: false
 znc_enabled: false
 
 # Usenet Downloader
-nbz_get_enabled: true
+nbzget_enabled: true
 
 
 ###
