@@ -20,18 +20,18 @@ plex_enabled: false
 tautulli_enabled: false
 
 # Emby
-emby_enabled: false
+emby_enabled: true
 
 # minidlna
 minidlna_enabled: false
 
 # Media Sourcing
-sonarr_enabled: false
+sonarr_enabled: true
 sickrage_enabled: false
 couchpotato_enabled: false
-radarr_enabled: false
+radarr_enabled: true
 get_iplayer_enabled: false
-jackett_enabled: false
+jackett_enabled: true
 
 # Music
 airsonic_enabled: false
@@ -58,6 +58,9 @@ timemachine_enabled: false
 # IRC bouncer
 znc_enabled: false
 
+# Usenet Downloader
+nbz_get_enabled: true
+
 
 ###
 ### General
@@ -73,7 +76,7 @@ ansible_nas_timezone: Etc/UTC
 keep_packages_updated: false
 
 # Will be added to the docker group to give user command line access to docker
-ansible_nas_user: david
+ansible_nas_user: blitz
 
 # Your email and domain, used for LetsEncrypt SSL certs
 ansible_nas_email: me@example.com
@@ -88,18 +91,18 @@ ansible_nas_domain: example.com
 docker_image_directory: "{{ docker_home }}/data"
 
 # Where you want Docker to store its container data.
-docker_home: /mnt/Volume2/docker
+docker_home: /docker
 
 # Docker storage driver, see https://docs.docker.com/storage/storagedriver/select-storage-driver/#supported-backing-filesystems
 # You'll need to change this if your docker_home isn't on zfs and Docker won't start (you'll probably want overlay2 instead)
-docker_storage_driver: zfs
+docker_storage_driver: overlay2
 
 ###
 ### Samba
 ###
 # The location where all shares will be created by default. Can be overridden on a per-share basis.
 # This path will be mounted to backup containers, Duplicati
-samba_shares_root: /mnt/Volume3
+samba_shares_root: /local_media
 
 # Where stuff downloaded will be stored
 downloads_root: "{{ samba_shares_root }}/downloads"
@@ -217,10 +220,10 @@ cloudflare_api_key: abcdeabcdeabcdeabcde1234512345
 ansible_nas_extra_packages:
   - smartmontools
   - htop
-  - zfsutils-linux
   - bonnie++
   - unzip
   - lm-sensors
+#  - zfsutils-linux
 
 ansible_python_interpreter: /usr/bin/python3
 
@@ -313,6 +316,14 @@ radarr_download_directory: "{{ downloads_root }}"
 radarr_data_directory: "{{ docker_home }}/radarr"
 radarr_user_id: 0
 radarr_group_id: 0
+
+###
+### NBZGet
+###
+nbzget_download_directory: "{{ downloads_root }}"
+nbzget_config_directory: "{{ docker_home }}/nbzget"
+nbzget_user_id: 0
+nbzget_group_id: 0
 
 
 ###

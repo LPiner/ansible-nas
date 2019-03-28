@@ -134,3 +134,7 @@
   - import_tasks: tasks/jackett.yml
     when: (jackett_enabled | default(False))
     tags: jackett
+
+  - import_tasks: tasks/nbzget.yml
+    when: (nbzget_enabled | default(False))
+    tags: nbzget
