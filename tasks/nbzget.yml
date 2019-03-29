@@ -6,7 +6,7 @@
     # mode: 0755
   with_items:
     - "{{ nbzget_config_directory }}"
-    - "{{ nbzget_download_directory }}"
+downloads_root }}"
 
 - name: nzbget Docker Container
   docker_container:
@@ -15,7 +15,7 @@
     pull: true
     volumes:
       - "{{ nbzget_config_directory }}:/config:rw"
-      - "{{ nbzget_download_directory }}:/downloads:rw"
+downloads_root }}:/downloads:rw"
     ports:
       - "6789:6789"
     env:

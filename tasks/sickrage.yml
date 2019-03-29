@@ -14,8 +14,8 @@
     pull: true
     volumes:
       - "{{ sickrage_config_directory }}:/config:rw"
-      - "{{ sickrage_downloads_directory }}/completed:/downloads:rw"
-      - "{{ sickrage_tv_directory }}:/tv:rw"
+downloads_root }}/completed:/downloads:rw"
+tv_root }}:/tv:rw"
     ports:
       - "8081:8081"
     env:

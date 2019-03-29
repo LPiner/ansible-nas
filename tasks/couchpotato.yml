@@ -14,8 +14,8 @@
     pull: true
     volumes:
       - "{{ couchpotato_config_directory }}:/config:rw"
-      - "{{ couchpotato_downloads_directory }}/completed:/downloads:rw"
-      - "{{ couchpotato_movies_directory }}:/movies:rw"
+downloads_root }}/completed:/downloads:rw"
+movies_root }}:/movies:rw"
       - "{{ couchpotato_torrents_directory }}:/torrents:rw"
     ports:
       - "5050:5050"

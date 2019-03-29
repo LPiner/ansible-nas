@@ -4,7 +4,7 @@
     state: directory
   with_items:
     - "{{ get_iplayer_config_directory }}"
-    - "{{ get_iplayer_download_directory }}"
+downloads_root }}"
 
 - name: get_iplayer Docker Container
   docker_container:
@@ -13,7 +13,7 @@
     pull: true
     volumes:
       - "{{ get_iplayer_config_directory }}:/root/.get_iplayer:rw"
-      - "{{ get_iplayer_download_directory }}:/root/output:rw"
+downloads_root }}:/root/output:rw"
     ports:
       - "8182:8181"
     restart_policy: unless-stopped
